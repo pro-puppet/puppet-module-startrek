@@ -37,5 +37,8 @@
 #
 class startrek {
 
+   $foo = lookup('captain')
+
+   notify {$foo: }
 
 }
