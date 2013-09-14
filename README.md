@@ -1,9 +1,11 @@
-startrek by Spencer Krum and William Van Hevelingen
+startrek
+========
 
-This is the startrek module. It is to demonstrate the use of data-in-modules from Puppet 3.3.
+Spencer Krum and William Van Hevelingen
 
-This README is more blog post than README and describes our process to get d-i-m working.
+This module demonstrates the use of data-in-modules from Puppet 3.3.0+
 
+As described in [ARM-9](http://links.puppetlabs.com/arm9-data_in_modules)
 
 First verify that you have Puppet 3.3
 
@@ -50,16 +52,65 @@ mkdir data
 cd data
 ```
 
-    yoruichi:/etc/puppet/modules/startrek# cat data/common.yaml 
-```yaml
-    ---
-    ops: spock
-    tactical: chekov
-    helm: sulu
-    communications: uhura
-    captain: kirk
+```bash
+cat data/common.yaml
 ```
 
+```yaml
+---
+ops: spock
+tactical: chekov
+helm: sulu
+communications: uhura
+captain: kirk
+```
+
+```bash
+cat data/osfamily/Debian.yaml
+```
+
+```yaml
+---
+tactical: tuvok
+ops: kim
+helm: paris
+engineering: torres
+captain: janeway
+```
+
+```bash
+cat data/osfamily/RedHat.yaml
+```
+
+```yaml
+---
+tactical: worf
+ops: data
+helm: wesley
+engineering: geordi
+captain: picard
+```
+
+
+```bash
+$ FACTER_OSFAMILY=RedHat puppet apply  tests/init.pp
+Notice: Compiled catalog for pro-puppet.lan in environment production in 0.23 seconds
+Notice: picard
+Notice: /Stage[main]/Startrek/Notify[picard]/message: defined 'message' as 'picard'
+Notice: Finished catalog run in 0.11 seconds
+
+$ FACTER_OSFAMILY=Debian puppet apply  tests/init.pp
+Notice: Compiled catalog for pro-puppet.lan in environment production in 0.23 seconds
+Notice: janeway
+Notice: /Stage[main]/Startrek/Notify[janeway]/message: defined 'message' as 'janeway'
+Notice: Finished catalog run in 0.10 seconds
+
+$ FACTER_OSFAMILY=ArchLinux puppet apply  tests/init.pp
+Notice: Compiled catalog for pro-puppet.lan in environment production in 0.22 seconds
+Notice: kirk
+Notice: /Stage[main]/Startrek/Notify[kirk]/message: defined 'message' as 'kirk'
+Notice: Finished catalog run in 0.11 seconds
+```
 
 License
 -------
@@ -74,4 +125,4 @@ Spencer Krum and William Van Hevelingen
 Support
 -------
 
-Please log tickets and issues at github.
+Proof of concept, no support, not for production
