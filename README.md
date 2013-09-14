@@ -63,6 +63,9 @@ tactical: chekov
 helm: sulu
 communications: uhura
 captain: kirk
+starship:
+  name: enterprise
+  class: constitution
 ```
 
 ```bash
@@ -76,6 +79,9 @@ ops: kim
 helm: paris
 engineering: torres
 captain: janeway
+starship:
+  name: voyager
+  class: intrepid
 ```
 
 ```bash
@@ -89,26 +95,28 @@ ops: data
 helm: wesley
 engineering: geordi
 captain: picard
+starship:
+  name: enterprise
+  class: galaxy
 ```
 
-
 ```bash
-$ FACTER_OSFAMILY=RedHat puppet apply  tests/init.pp
+$ FACTER_OSFAMILY=Debian puppet apply tests/init.pp                                                                       
 Notice: Compiled catalog for pro-puppet.lan in environment production in 0.23 seconds
-Notice: picard
-Notice: /Stage[main]/Startrek/Notify[picard]/message: defined 'message' as 'picard'
-Notice: Finished catalog run in 0.11 seconds
-
-$ FACTER_OSFAMILY=Debian puppet apply  tests/init.pp
-Notice: Compiled catalog for pro-puppet.lan in environment production in 0.23 seconds
-Notice: janeway
-Notice: /Stage[main]/Startrek/Notify[janeway]/message: defined 'message' as 'janeway'
+Notice: janeway commands the voyager
+Notice: /Stage[main]/Startrek/Notify[janeway commands the voyager]/message: defined 'message' as 'janeway commands the voyager'
 Notice: Finished catalog run in 0.10 seconds
 
-$ FACTER_OSFAMILY=ArchLinux puppet apply  tests/init.pp
-Notice: Compiled catalog for pro-puppet.lan in environment production in 0.22 seconds
-Notice: kirk
-Notice: /Stage[main]/Startrek/Notify[kirk]/message: defined 'message' as 'kirk'
+$ FACTER_osfamily=RedHat puppet apply tests/init.pp 
+Notice: Compiled catalog for pro-puppet.lan in environment production in 0.23 seconds
+Notice: picard commands the enterprise
+Notice: /Stage[main]/Startrek/Notify[picard commands the enterprise]/message: defined 'message' as 'picard commands the enterprise'
+Notice: Finished catalog run in 0.12 seconds
+
+$ FACTER_osfamily=ArchLinux puppet apply tests/init.pp                                             
+Notice: Compiled catalog for pro-puppet.lan in environment production in 0.23 seconds
+Notice: kirk commands the enterprise
+Notice: /Stage[main]/Startrek/Notify[kirk commands the enterprise]/message: defined 'message' as 'kirk commands the enterprise'
 Notice: Finished catalog run in 0.11 seconds
 ```
 
