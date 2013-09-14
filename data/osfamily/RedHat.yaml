@@ -1,0 +1,10 @@
+---
+tactical: worf
+ops: data
+helm: wesley
+engineering: geordi
+captain: picard
+starship:
+  name: enterprise
+  class: galaxy
+

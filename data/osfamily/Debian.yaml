@@ -4,3 +4,6 @@ ops: kim
 helm: paris
 engineering: torres
 captain: janeway
+starship:
+  name: voyager
+  class: intrepid
