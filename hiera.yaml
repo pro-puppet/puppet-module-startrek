@@ -1,2 +1,8 @@
 ---
 version: 2
+hierarchy:
+  [['osfamily', '$osfamily', 'data/osfamily/$osfamily'],
+   ['species', '$species', 'data/species/$species'],
+   ['environment', '$environment', 'data/env/$environment'],
+   ['common', 'true', 'data/common']
+  ]
