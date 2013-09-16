@@ -9,6 +9,10 @@ class startrek {
 
    notify {"${captain} commands the ${ship['name']}": }
 
+   $secret_group = lookup('secret_group')
+
+   notify {"${captain} is always wary of the ${secret_group}": }
+
 
 
 }
