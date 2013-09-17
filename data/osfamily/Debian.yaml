@@ -4,6 +4,7 @@ ops: kim
 helm: paris
 engineering: torres
 captain: janeway
+akward_character: neelix
 starship:
   name: voyager
   class: intrepid

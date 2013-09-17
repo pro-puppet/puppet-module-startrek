@@ -4,6 +4,13 @@
 #
 class startrek {
 
+   if $cringe {
+     $akward = lookup('akward_character')
+     notify {"${akward} is always screwing it up"}
+   }
+    
+
+
    $captain = lookup('captain')
    $ship = lookup('starship')
 

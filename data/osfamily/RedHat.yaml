@@ -4,6 +4,7 @@ ops: data
 helm: wesley
 engineering: geordi
 captain: picard
+akward_character: barcalay
 starship:
   name: enterprise
   class: galaxy
